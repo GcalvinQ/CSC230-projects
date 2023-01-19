@@ -2,10 +2,69 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name = "viewport" content="width-device-width, inital-scale=1">
 <title>Test</title>
+<link href="TestCSS.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 </head>
-
 <body>
-	<p>Today is gonna be a Wednesday but really it's a Tuesday</p>
-</body>
+	<div class="navigation">
+		<ul>
+			<li class="list active">
+				<a href="#">
+					<span class="icon">
+						<ion-icon name="home"></ion-icon>
+					</span>
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="#">
+					<span class="icon">
+						<ion-icon name="person"></ion-icon>
+					</span>
+					<span class="text">Profile</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="#">
+					<span class="icon">
+						<ion-icon name="text"></ion-icon>
+					</span>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="#">
+					<span class="icon">
+						<ion-icon name="camera"></ion-icon>
+					</span>
+					<span class="text">Photos</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="#">
+					<span class="icon">
+						<ion-icon name="settings"></ion-icon>
+					</span>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<div class="indicator">
+			
+			</div>
+		</ul>
+	</div>
+	<script>
+		const list = document.querySelectorAll('.list');
+		function activeLink(){
+			list.forEach((item) =>
+			item.classList.remove('active'));
+			this.classList.add('active');
+		}
+		list.forEach((item) =>
+		item.addEventListener('click',activeLink));
+	</script>
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+	</body>
 </html>
