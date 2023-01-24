@@ -1,10 +1,13 @@
-/* This code is the property of the River Dell Regional School District and its related entities. It may not be copied or re-used without express permission from the Development Team */
 /* Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600');
 
 .navbar-fix {
   position: absolute;
   top: 0;
+}
+
+#nav{
+	height: 66px !important;
 }
 
 html {
@@ -30,29 +33,29 @@ body {
 }
 
 ::selection {
-  background: #057AFF;
+  background: #707172;
   color: #fff;
 }
 ::-moz-selection {
-  background: #057AFF;
+  background: #707172;
   color: #fff;
 }
 
 a {
   cursor: pointer;
-  color: #3E63D3;
+  color: #707172;
 }
 
 a:hover {
   color: inherit;
-  color: #3E63D3;
+  color: #707172;
   opacity: .6;
 }
 
 #header {
   display: table;
   color: #FFF;
-  background: linear-gradient(to bottom right, #057AFF, #6A2FD6);
+  background: linear-gradient(to bottom right, #707172, #E1E1E1);
   background-repeat: no-repeat;
   height: 90vh;
   z-index: -99999999999;
@@ -60,7 +63,7 @@ a:hover {
 
 #header-sm {
   color: #FFF;
-  background: linear-gradient(150deg, #057AFF 0%, #6A2FD6 85%);
+  background: linear-gradient(150deg, #707172 0%, #E1E1E1 85%);
   background-repeat: no-repeat;
   height: 18rem;
   z-index: -99999999999;
@@ -68,7 +71,7 @@ a:hover {
 
 #header-live {
   color: #FFF;
-  background: linear-gradient(150deg, #057AFF 0%, #6A2FD6 85%);
+  background: linear-gradient(150deg, #707172 0%, #E1E1E1 85%);
   background-repeat: no-repeat;
   height: 18rem;
   z-index: -99999999999;
@@ -91,7 +94,7 @@ a:hover {
 
 .footer {
   color: #FFF;
-    background: linear-gradient(125deg, #057AFF 0%, #6A2FD6 70%);
+    background: linear-gradient(125deg, #707172 0%, #E1E1E1 70%);
   height: 10rem;
   position: absolute;
   padding-top: .5rem;
@@ -158,6 +161,7 @@ a:hover {
 .brand-logo {
   width: auto;
   padding-right: .5rem;
+	padding-top: 1rem;
 }
 
 .logo {
@@ -328,97 +332,7 @@ a:hover {
   box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
 }
 
-.sponsor-img {
-  max-width: 200px;
-}
 
-.sponsor-row {
-  text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.sponsor-subhead {
-  text-align: center;
-}
-
-.btn-one {
-  color: rgb(255,255,255) !important;
-  background-color: transparent;
-  border-radius: 0px;
-  border-width: 2px;
-  border-color: #fff;
-  font-weight: 300 !important;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14pt;
-	-webkit-transition: all ease 0.2s;
-	-moz-transition: all ease 0.2s;
-	transition: all ease 0.2s;
-
-}
-
-.btn-one:hover {
-  color: #fff !important;
-  background-color: rgba(255, 255, 255, 0.5);
-	-webkit-transition: all ease 0.2s;
-	-moz-transition: all ease 0.2s;
-	transition: all ease 0.2s;
-
-}
-
-.btn-two {
-  color: #333399 !important;
-  background-color: transparent;
-  border-radius: 0px;
-  border-width: 2px;
-  border-color: #333399;
-  font-weight: 500 !important;
-  font-family: 'Poppins', sans-serif;
-
-  max-width: 100%;
-	-webkit-transition: all ease 0.2s;
-	-moz-transition: all ease 0.2s;
-	transition: all ease 0.2s;
-
-}
-
-.btn-two:hover {
-  color: #333399 !important;
-  background-color: rgba(51, 51, 153, 0.5);
-	-webkit-transition: all ease 0.2s;
-	-moz-transition: all ease 0.2s;
-	transition: all ease 0.2s;
-
-}
-
-.btn-extend {
-  width: 15rem;
-}
-
-.btn-three {
-  color: #aa2a2a !important;
-  background-color: transparent;
-  border-radius: 0px;
-  border-width: 2px;
-  border-color: #aa2a2a;
-  font-weight: 500 !important;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14pt;
-  max-width: 100%;
-	-webkit-transition: all ease 0.2s;
-	-moz-transition: all ease 0.2s;
-	transition: all ease 0.2s;
-
-}
-
-.btn-three:hover {
-  color: #aa2a2a !important;
-  background-color: rgba(170, 42, 42, 0.5);
-	-webkit-transition: all ease 0.2s;
-	-moz-transition: all ease 0.2s;
-	transition: all ease 0.2s;
-
-}
 
 .nav-pills .nav-link {
   font-weight: 500;
@@ -440,77 +354,7 @@ a:hover {
   padding-top: 3rem;
 }
 
-.schedule-row {
-  background-color: #ECEFF1;
-  border-radius: 10px;
-  padding: 10px 10px 10px 10px;
-  margin-bottom: 0.5rem;
-}
 
-.schedule-muted {
-  color: #A6AAA8;
-}
-
-.schedule-link {
-  font-weight: 400;
-  font-size: 12pt;
-  color: #5855D6;rgba(88, 85, 214, 0.78)
-}
-
-.schedule-link:hover {
-  color: rgba(88, 85, 214, 0.75);
-}
-
-
-table {
- display: table;
- width: 100%;
- border-collapse: collapse;
-}
-
-tr {
- display: table-row;
- width: 100%;
- padding: 0;
-
-}
-#schedule td {
- font-weight: bold;
- display: table-cell;
- font-size: 14pt;
-}
-
-#event-time {
-  width: 200px;
-}
-
-#event-name {
-  width: 350px;
-}
-#event-location {
-  width: 250px;
-}
-
-#event-notes {
-  display: none !important;
-  text-align: right;
-}
-
-#map {
-  width: 100%;
-  height: 260px;
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
-}
-
-/* Google Maps Fix */
-.overlay {
-  background:transparent;
-  position:relative;
-  width:100%;
-  height:550px;
-  top:550px;
-  margin-top:-550px;
-}
 
 /* Navbar */
 .nav-link {
@@ -529,7 +373,8 @@ tr {
 
 .navbar-transparent .brand-logo {
   content: url("1.png");
-  height: 2rem;
+  height: 10rem;
+
 }
 
 .navbar-transparent .navbar-nav .nav-link {
@@ -547,7 +392,7 @@ tr {
 }
 
 .navbar-transparent .nav-item .active {
-  border-bottom: 3.5px solid #333399 !important;
+  border-bottom: 3.5px solid #707172 !important;
 }
 
 .navbar-transparent .dropdown-menu {
@@ -580,7 +425,7 @@ tr {
 
 /* Gradient Nav */
 .navbar-gradient {
-  background: linear-gradient(to right, #057AFF, #6A2FD6);
+  background: linear-gradient(to right, #707172, #E1E1E1);
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-bottom: 3.5px solid transparent;
 }
@@ -591,8 +436,8 @@ tr {
 }
 
 .navbar-gradient .brand-logo {
-  content: url("../img/nav-title-white.png");
-  height: 2rem;
+  content: url("1.png");
+  height: 4rem;
 }
 
 .navbar-gradient .navbar-nav .nav-link {
@@ -641,7 +486,7 @@ tr {
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-text, .navbar-default .navbar-brand:hover .navbar-brand:focus {
-  color: #0077CF;
+  color: #707172;
   font-weight: 500;
 
 }
@@ -665,8 +510,8 @@ tr {
 }
 
 .navbar-default .nav-item .active {
-  color: #3A3C83 !important;
-  border-bottom: 3.5px solid #3A3C83 !important;
+  color: #707172 !important;
+  border-bottom: 3.5px solid #707172 !important;
 }
 
 .navbar-default .dropdown-menu {
