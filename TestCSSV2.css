@@ -394,6 +394,8 @@ a:hover {
   transition: all 0.2s ease;
 }
 
+
+
 .navbar-transparent .nav-item .active {
   border-bottom: 3.5px solid #707172 !important;
 }
