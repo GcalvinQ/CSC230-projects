@@ -550,7 +550,7 @@ pre code {
   padding-right: 15px;
   padding-left: 1px;
   margin-right: auto;
-  margin-left: 20px;
+  margin-left: auto;
 }
 
 @media (min-width: 576px) {
