@@ -33,6 +33,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.bi-info-circle{
+  padding-right: 0.3rem;
+}
+
 ::selection {
   background: #707172;
   color: #fff;
@@ -355,7 +359,6 @@ a:hover {
 .tab-content {
   padding-top: 3rem;
 }
-
 
 
 /* Navbar */
