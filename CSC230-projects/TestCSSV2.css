@@ -37,6 +37,10 @@ body {
   padding-right: 0.3rem;
 }
 
+.bi-boxes{
+  padding-right: 0.3rem;
+}
+
 ::selection {
   background: #707172;
   color: #fff;
