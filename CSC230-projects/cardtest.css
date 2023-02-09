@@ -65,7 +65,7 @@
         cursor: pointer;
     }
     .profile.profile--expanded {
-        height: 240px;
+        height: 400px;
         animation: expand 0.5s ease;
     }
     .profile__banner {
@@ -166,12 +166,12 @@
         height: 180px;
     }
     100% {
-        height: 240px;
+        height: 400px;
     }
 }
 @keyframes unexpand {
     0% {
-        height: 240px;
+        height: 400px;
     }
     100% {
         height: 180px;
