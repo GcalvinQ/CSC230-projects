@@ -285,6 +285,7 @@ a:hover {
 .signup-title {
   font-weight: 600;
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 #bottom-signup {
@@ -341,7 +342,35 @@ a:hover {
   box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
 }
 
+.btn-extend {
+  width: 15rem;
+}
 
+.btn-three {
+  color: #0191f0 !important;
+  background-color: transparent;
+  border-radius: 0px;
+  border-width: 2px;
+  border-color: #0191f0 !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14pt;
+  max-width: 100%;
+	-webkit-transition: all ease 0.2s;
+	-moz-transition: all ease 0.2s;
+	transition: all ease 0.2s;
+  
+
+}
+
+.btn-three:hover {
+  color: #000000 !important;
+  background-color: rgba(11, 197, 230, 0.5);
+	-webkit-transition: all ease 0.2s;
+	-moz-transition: all ease 0.2s;
+	transition: all ease 0.2s;
+
+}
 
 .nav-pills .nav-link {
   font-weight: 500;
