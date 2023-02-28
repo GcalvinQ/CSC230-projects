@@ -10,7 +10,7 @@ pwd=''
 def signaction(request):
     global fn,ln,s,em,pwd
     if request.method=="POST":
-        m=sql.connect(host="localhost",user="root",passwd="user1234",database='website')
+        m=sql.connect(host="localhost",user="root",passwd="jgreeny1",database='website')
         cursor=m.cursor()
         d=request.POST
         for key,value in d.items():
