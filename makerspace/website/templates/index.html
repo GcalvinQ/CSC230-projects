@@ -1,15 +1,15 @@
-<!doctype html>
+{% load static %}
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Test Page V2</title>
-<link href="TestCSSV2.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/bootstrap.css">
+<title>Test Page V2 {% block title %} {% endblock %}</title>
+<link href="{% static 'css/main.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'css/css/bootstrap.css'%}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-<link href="cardtest.css" rel="stylesheet" type="text/css">
-<script src="cardtest.js"></script>
+<link href="{% static 'css/cardtest.css'%}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/main.js'%}"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="js/bootstrap.js"></script>
+<script src="{% static 'js/js/bootstrap.js'%}"></script>
 </head>
 <body data-spy="scroll" data-target="#nav" data-offset="80">
       <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
@@ -53,7 +53,7 @@
 
       <div class="container-fluid" id="header" align="center">
         <div class="logo-container">
-          <img src="logo_transparent.png" class="logo">
+          <img src="{% static 'img/logo_transparent.png'%}" class="logo">
         </div>
       </div>
 
@@ -66,7 +66,7 @@
               <p>Inserting Description about the Maker's Space. It is really cool. I just need to see the layout of this spacing with the medium and large columns. I just want to make sure that eveything looks good cause I really don't want to fix this anymore besides these sentence.</p>
             </div>
             <div class="col-sm-6 col-md-6 col-md-offset-0">
-              <img src="1.png" class="img-standalone" id="desktop-img">
+              <img src="{% static 'img/1.png' %}" class="img-standalone" id="desktop-img">
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of 3D Printer">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of 3D Printer">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">3D Printer</span>
@@ -102,7 +102,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Laser">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Laser">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Laser</span>
@@ -119,7 +119,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Milling Machine">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Milling Machine">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Milling Machine</span>
@@ -138,7 +138,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Soldering Iron">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Soldering Iron">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Soldering Iron</span>
@@ -155,7 +155,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Waveform Generator">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Waveform Generator">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Waveform Generator</span>
@@ -172,7 +172,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Multimeter">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Multimeter">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Multimeter</span>
@@ -191,7 +191,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Oscilloscope">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Oscilloscope">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Oscilloscope</span>
@@ -208,7 +208,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Power Supply">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Power Supply">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Power Supply</span>
@@ -225,7 +225,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Desktop Forming Vacumm Machine">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Desktop Forming Vacumm Machine">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Desktop Forming Vacumm Machine</span>
@@ -244,7 +244,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Roland Vinyl Cutter">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Roland Vinyl Cutter">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Roland Vinyl Cutter</span>
@@ -261,7 +261,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of Power Press">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of Power Press">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">Power Press</span>
@@ -278,7 +278,7 @@
                   <div class="profile__banner" style="background-color: transparent;"></div>
                   <div>
                       <div class="profile__pic">
-                          <img src="logo.png" alt="Profile picture of HP DesignJet">
+                          <img src="{% static 'img/logo.png'%}" alt="Profile picture of HP DesignJet">
                       </div>
                       <div class="profile__info">
                           <span class="profile__info-display">HP DesignJet</span>
@@ -301,7 +301,7 @@
               </div>
             </div>
             <div class="signup-card" align="center">
-              <img src="1.png" width="250px">
+              <img src="{% static 'img/1.png'%}" width="250px">
               <br>
               <br>
               <h3 class="signup-title">Want to Use the Maker's Space</h3>
@@ -315,7 +315,7 @@
      
 
     <!-- nav scrolled JS-->
-    <script src="js/navbar.js"></script>
+    <script src="{% static 'js/js/navbar.js'%}"></script>
 	  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     </body>
 
