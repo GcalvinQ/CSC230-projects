@@ -1,11 +1,14 @@
 from django.shortcuts import render
 import mysql.connector as sql
+import hashlib
+
 fn = ''
 ln = ''
 u = ''
 em = ''
 pwd = ''
 
+passwordHash = hashlib.md5(pwd.encode('utf-8')).hexdigest()
 
 # Create your views here.
 def signaction(request):
@@ -26,7 +29,7 @@ def signaction(request):
             if key=="password":
                 pwd = value
         
-        c="insert into account Values('{}', '{}', '{}', '{}', '{}')".format(fn, ln, u, em, pwd)
+        c="insert into account Values('{}', '{}', '{}', '{}', '{}')".format(fn, ln, u, em, passwordHash)
         cursor.execute(c)
         m.commit()
     

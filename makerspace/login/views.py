@@ -1,8 +1,10 @@
 from django.shortcuts import render
 import mysql.connector as sql
+import hashlib
 em = ''
 pwd = ''
 
+passwordDecode = hashlib.md5(pwd.encode('utf-8')).hexdigest()
 
 # Create your views here.
 def loginaction(request):
@@ -17,7 +19,7 @@ def loginaction(request):
             if key=="password":
                 pwd = value
         
-        c="select * from account where email='{}' and password='{}'".format(em, pwd)
+        c="select * from account where email='{}' and password='{}'".format(em, passwordDecode)
         cursor.execute(c)
         t=tuple(cursor.fetchall())
         if t==():
