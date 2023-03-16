@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import mysql.connector as sql
 import hashlib
 
@@ -8,7 +8,7 @@ u = ''
 em = ''
 pwd = ''
 
-passwordHash = hashlib.md5(pwd.encode('utf-8')).hexdigest()
+
 
 # Create your views here.
 def signaction(request):
@@ -28,9 +28,11 @@ def signaction(request):
                 em = value
             if key=="password":
                 pwd = value
-        
+        passwordHash = hashlib.sha256(pwd.encode('utf-8')).hexdigest()
         c="insert into account Values('{}', '{}', '{}', '{}', '{}')".format(fn, ln, u, em, passwordHash)
         cursor.execute(c)
         m.commit()
+        return redirect('http://127.0.0.1:8000/login')
+        
     
     return render(request,'signup_page.html')

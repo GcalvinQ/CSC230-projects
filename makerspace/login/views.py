@@ -4,7 +4,7 @@ import hashlib
 em = ''
 pwd = ''
 
-passwordDecode = hashlib.md5(pwd.encode('utf-8')).hexdigest()
+
 
 # Create your views here.
 def loginaction(request):
@@ -18,7 +18,7 @@ def loginaction(request):
                 em = value
             if key=="password":
                 pwd = value
-        
+        passwordDecode = hashlib.sha256(pwd.encode('utf-8')).hexdigest()
         c="select * from account where email='{}' and password='{}'".format(em, passwordDecode)
         cursor.execute(c)
         t=tuple(cursor.fetchall())
