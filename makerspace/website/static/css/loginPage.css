@@ -28,7 +28,6 @@ body {
   padding-bottom: 12rem;
   min-height: 100%;
   color: #000;
-  background-color: #F7F7F7;
   width: 100%;
   font-family: 'Poppins', sans-serif;
 }
@@ -61,14 +60,6 @@ a:hover {
   opacity: .6;
 }
 
-#header {
-  display: table;
-  color: #FFF;
-  background: linear-gradient(to bottom right, #707172, #E1E1E1);
-  background-repeat: no-repeat;
-  height: 90vh;
-  z-index: -99999999999;
-}
 
 #header-sm {
   color: #FFF;
@@ -275,6 +266,7 @@ a:hover {
 .input-group{
     justify-content: center;
     position: relative;
+    padding: 6%;
 }
 
 .input{
@@ -289,7 +281,7 @@ a:hover {
 
 .input-label{
     position: absolute;
-    top: 0;
+    top: 8;
     left: 0;
     transform: translate(10px, 10px);
     transition: transform .25s;
@@ -298,17 +290,17 @@ a:hover {
 .input:focus+.input-label, .input:valid+.input-label{
     transform:
     translate(10px, -14px) scale(.8);
-    color: #d1c5fc;
+    color: #ffffff;
     padding-inline: 5px;
     background-color: #242329;
 }
 
 .input:is(:focus, :valid){
-    outline-color: #d1c5fc;
+    outline-color: #3cd02e;
 }
 
 .user_card {
-    width: 350px;
+    width: 500px;
     margin-top: auto;
     margin-bottom: auto;
     background: #ffffff;
@@ -316,7 +308,8 @@ a:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -324,8 +317,13 @@ a:hover {
 
 }
 
+form{
+  background: linear-gradient(150deg, #707172 0%, #E1E1E1 85%);
+}
+
 .form_container {
     margin-top: 20px;
+    padding-top: 30px;
 }
 
 #form-title{
@@ -344,25 +342,10 @@ a:hover {
 }
 .login_container {
     padding: 0 2rem;
-}
-.input-group-text {
-    background: #f7ba5b !important;
-    color: white !important;
-    border: 0 !important;
-    border-radius: 0.25rem 0 0 0.25rem !important;
-}
-.input_user,
-.input_pass:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
+    margin-top: 20px;
 }
 
-#messages{
-    background-color: grey;
-    color: #fff;
-    padding: 10px;
-    margin-top: 10px;
-}
+
 
 
 /* Navbar */
@@ -504,7 +487,7 @@ a:hover {
 }
 
 .navbar-default .brand-logo {
-  content: url("/static/img/1.png")
+  content: url("/static/img/1.png");
 }
 
 .navbar-default .navbar-nav .nav-link {
