@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import mysql.connector as sql
 import hashlib
+
 em = ''
 pwd = ''
 

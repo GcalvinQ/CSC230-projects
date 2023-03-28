@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 import mysql.connector as sql
 import hashlib
 
+
 fn = ''
 ln = ''
 u = ''
