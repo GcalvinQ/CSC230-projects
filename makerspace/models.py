@@ -13,7 +13,8 @@ class Account(models.Model):
     lastname = models.CharField(db_column='lastName', max_length=255)  # Field name made lowercase.
     username = models.CharField(primary_key=True, max_length=55)
     email = models.CharField(max_length=255)
-    password = models.CharField(max_length=44)
+    password = models.CharField(max_length=255)
+    is_loggedin = models.IntegerField(db_column='is_loggedIn')  # Field name made lowercase.
 
     class Meta:
         managed = False
