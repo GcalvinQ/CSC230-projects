@@ -63,13 +63,13 @@
     <div class="row my-4">
         <div class="col-md-4 offset-md-4">
             <div class="border p-3 bg-white">
-                <h4>Login Page</h4>
+                <center><h4>Makerspace Login</h4></center>
                 <hr>
                 <form method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <input class="btn btn-success" type="submit" value="Login">
-                    <a class="mx-4" href="{% url 'password_reset'%}">Forget Password?</a>
+                    <center style = "padding-bottom: 10px;"><input class="btn btn-success" type="submit" value="Login"></center>
+                    <center><a class="mx-4" href="{% url 'password_reset'%}">Forget Password?</a></center>
                 </form>
             </div>
         </div>
