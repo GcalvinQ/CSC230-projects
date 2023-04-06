@@ -66,7 +66,7 @@
     }
     .profile.profile--expanded {
         height: 400px;
-        animation: expand 0.5s ease;
+        animation: expand 0.7s ease;
     }
     .profile__banner {
         display: block;
@@ -114,7 +114,7 @@
             width: 100%;
             text-align: center;
             padding-top: inherit;
-            height: 66px;
+            height: 200px;
             position: absolute;
             top: 168px;
 
@@ -129,6 +129,7 @@
         .profile--expanded > .profile__data {
             opacity: 1;
             animation: reveal 0.7s ease;
+            overflow: scroll;
         }
         .profile__data > * > * {
             display: block;
