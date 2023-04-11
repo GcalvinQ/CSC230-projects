@@ -1,0 +1,356 @@
+{% load static %}
+<html>
+<head>
+<meta charset="UTF-8">
+<title>UT's Makerspace {% block title %} {% endblock %}</title>
+<link href="{% static 'css/main.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'css/css/bootstrap.css'%}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link href="{% static 'css/cardtest.css'%}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/main.js'%}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="{% static 'js/js/bootstrap.js'%}"></script>
+</head>
+<body data-spy="scroll" data-target="#nav" data-offset="80">
+      <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
+        <div class="container">
+        <button class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar top-bar"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
+        </button>
+          <a class="navbar-brand mr-auto" href="#"><img class="brand-logo"></a>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="#info">
+                    <span class="icon">
+                      <i class="bi bi-info-circle"></i>
+                    <span>
+                    <span class="text">Info</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#equipment">
+                  <span class="icon">
+                    <i class="bi bi-boxes"></i>
+                  <span>
+                  <span class="text">Equipment</span>
+                </a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#login">
+                    <span class="icon">
+                      <i class="bi bi-box-arrow-in-right"></i>
+                    </span>
+                    <span class="text">Login</span>
+                  </a>
+              </li>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid" id="header" align="center">
+        <div class="logo-container">
+          <img src="{% static 'img/logo_transparent.png'%}" class="logo">
+        </div>
+      </div>
+
+      <div class="container section" id="info">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="section-heading">The Unviversity of Tampa's Maker's Space</h3>
+              <span class="heading-separator"></span>
+              <p>The Makerspace on the 6th floor of UT's Technology Building provides Computer Science (CS) majors and minors with resources for rapid prototyping. It's a place where CS students can design, fabricate, assemble, and test their ideas related to projects in the Computer Science curriculum. It supports various phases of project development from design, prototyping, and testing to fabrication, assembly, and production. The Makerspace is currently only available to CS majors and minors.</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-md-offset-0">
+              <img src="{% static 'img/makerspace.jpg' %}" class="img-standalone" id="desktop-img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container section" id="equipment">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="section-heading">Equipment</h3>
+              <span class="heading-separator"></span>
+            </div>
+            <button onclick="toggleTheme()" class="themer"></button>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/3D.jpg'%}" alt="Profile picture of 3D Printer">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">3D Printer</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>Two Makerbot Replicator+ single extruder 3D printers support fabrication of designs up
+                            to 11.6” by 7.6” by 6.5” high with PLA, tough PLA, and other filaments. Using fused filament fabrication technology, they feature a flexible grip surface (non-heated bed) and 100 micron layer resolution. These 3D printers are great for rough 3D prototyping and are <span style = "color:red;"><b>accessed through desktop computers in the Makerspace.</b></span></p>
+                            <p>One Ultimaker S3 dual extruder 3D printer supports fabrication of designs up to 9” by 7.4” by 7.9” high with PLA, tough PLA, Nylon, ABS, CPE, and other filaments. Using fused filament fabrication technology, it features a heated glass surface and 20 to 600 micron layer resolution. This 3D printer is great for polished designs and is <span style = "color:red;"><b>accessed via USB.</b></span></p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/laser.jpg'%}" alt="Profile picture of Laser">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Laser</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>Two Glowforge Pro desktop lasers enable cutting and engraving of wood, acrylic, glass, fabric, cardboard, leather, and some metals. They accommodate stock that is 20” wide by 12” long or greater, at a maximum height of 2”. The lasers can be <span style = "color:red;"><b>dangerous</b></span> and can only be accessed through a <span style = "color:red;"><b>Makerspace worker.</b></span></p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Milling.jpg'%}" alt="Profile picture of Milling Machine">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Milling Machine</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The Bantam Tools Desktop CNC milling machine allows milling of wood, many metals
+                            (but is optimized for aluminum), FR-1 copper-clad PCB (printed circuit board) blanks, and more. It supports designs up to 7” by 9” by 3.3” high (208 in3). It can be used to fabricate custom PCBs. The CNC milling machine can be <span style = "color:red;"><b>dangerous</b></span> and can only be accessed through a <span style = "color:red;"><b>Makerspace worker.</b></p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Soldering.jpg'%}" alt="Profile picture of Soldering Iron">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Soldering Iron</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>Three soldering stations allow students to populate custom milled printed circuit boards
+                              with electronic components.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Waveform.jpg'%}" alt="Profile picture of Waveform Generator">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Function Generator</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>A function generator is a piece of electronic test instrument used to generate and deliver standard waveforms, typically sine and square waves, to a device under test. It can be used to test a design or confirm that a piece of electronic equipment is working as intended.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Multimeter.jpg'%}" alt="Profile picture of Multimeter">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Multimeter</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The multimeter is used for measuring of voltage of direct current and alternating current, measuring of direct and alternatig current and measuring of resistance, electrical capacitance and inductance.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Oscilloscope.jpg'%}" alt="Profile picture of Oscilloscope">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Oscilloscope</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The oscilloscope can test and display voltage signals as waveforms, visual representations of the variation of voltage over time. The signals are plotted on a graph, which shows how the signal changes. The vertical (Y) access represents the voltage measurement and the horizontal (X) axis represents time.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Power.jpg'%}" alt="Profile picture of Power Supply">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Power Supply</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The power supply creates and supplies a stable Direct Current (DC) from the AC power supply of the outlet and can also be a power source to run electronic circuits or to check electronic devices.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Former.jpg'%}" alt="Profile picture of Desktop Forming Vacumm Machine">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Vacuum Former</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The Formech Compac Mini desktop vacuum former quickly shapes HIPS, ABS, PETG,
+                              and other plastic sheets in the form of an existing 3D design. It has a forming area of 11”
+                              by 9” and has a maximum draw depth of 5.5”.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Vinyl.jpg'%}" alt="Profile picture of Roland Vinyl Cutter">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Roland Vinyl Cutter</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The Roland CAMM-1 GS-24 desktop cutter custom cuts vinyl, heat transfer material, and more, from 2” to 27.5” wide (but also supports oversized designs using a novel tiling function).</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Press.jpg'%}" alt="Profile picture of Power Press">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Power Press</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>The PowerPress heat press can heat seal designs up to 15” by 15” onto fabrics (natural
+                              or synthetic), ceramic, some plastics, and more.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="profile" onclick="expand(this)">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/HP.jpg'%}" alt="Profile picture of HP DesignJet">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">HP DesignJet</span>
+                      </div>
+                  </div>
+                  <div class="profile__data">
+                      <span class="profile__data-following">
+                          <span class="profile__data-following-number">
+                            <p>Four HP EliteOne 800 G6 all-in-one desktop PCs allow students to create designs and connect to various devices that take their ideas from concept to reality.</p>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="container section" id="login">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="section-heading">Login</h3>
+                <span class="heading-separator"></span>
+              </div>
+            </div>
+            <div class="signup-card" align="center">
+              <img src="{% static 'img/entireRoom.jpg'%}" width="600px">
+              <br>
+              <br>
+              <h3 class="signup-title">Want to Use the Maker's Space</h3>
+              <p>
+                <a class="btn btn-three btn-extend" href="http://127.0.0.1:8000/login/">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+     
+
+    <!-- nav scrolled JS-->
+    <script src="{% static 'js/js/navbar.js'%}"></script>
+	  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    </body>
+
+
+
+
+</html>
