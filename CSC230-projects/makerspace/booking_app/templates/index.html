@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+<!--===== Bootstrap Carousel Slide =====-->
+{% block body %}
+
+  <!--Hero 1 Start-->
+
+  <div class="bg bg-secondary text-dark pt-5 pb-5">
+    <div class="text-center  pt-5 pb-5">
+      <h1 class="display-1 cGreen me-2 ms-2">Welcome To The UT Makerspace</h1>
+      <p class="fs-4 mt-3">The Makerspace - located on the 6th floor of UT's Technology Building provides students with the necessary resources for rapid prototyping.</p>
+      <a type="button" class="btn btn-primary shadow  mt-5" href="{% url 'booking' %}">Book Now</a>
+    </div>
+  </div>
+
+  <!--Hero 1 End-->
+
+          
+{% endblock %}
