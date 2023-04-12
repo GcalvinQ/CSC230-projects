@@ -6,7 +6,7 @@ from django.contrib import messages
 # Create your views here.
 def index(request):
     ''' ONLY RENDER THE LANDING TEMPLATE '''
-    return render(request, "index copy.html", {})
+    return render(request, "index.html", {})
 
 def booking(request):
     ''''''

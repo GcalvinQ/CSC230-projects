@@ -1,0 +1,92 @@
+<title>Equipment</title>
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<!-- ==== Carousel Slide ==== -->
+<div id="carouselExampleCaptions" class="carousel slide" style="100vh;">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{%static 'media/slider_1.jpg'%}" class="d-block w-100 h-60" alt="...">
+        <div class="carousel-caption d-none d-md-block" style="backgroundrgb(99, 99, 99, 0.06);border-radius:4rem;">
+          <h5>UT Makerspace</h5>
+          <p style="color:black;font-weight:600;">Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'media/slider_2.jpg'%}" class="d-block w-100 h-60" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Rapid Prototyping</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'media/slider_3.jpg' %}" class="d-block w-100 h-60" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Seamless Designs</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<!--- ===== Equipment Cards For Equipment Categories ===== -->
+<h1>Equipment List</h1>
+<hr class="divider">
+<div class='card-grid'
+style="display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;margin-top:1rem;margin-bottom:2rem;">
+
+{% for item in equipment %}
+{#  Single Card Template:#}
+    <div class="card" style="width:calc(25% - 2rem);margin-bottom: 1rem;">
+    <img src="{{ item.image }}"class="card-img-top" alt="{{ item.name }}">
+    <!--
+    <img src="static{{ equipment_images }}/{{ item.image }}" class="card-img-top" alt="{{ item.name }}">-->
+    <div class="card-body" style="display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;">
+        <div style="display: flex;flex-direction:column;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+        <h5 class="card-title" style="margin-right:auto;margin-bottom:0.5rem;">{{ item.name }}</h5>
+        {% if item.availability %}
+            {#  Colored cirlce:#}
+            <div style="
+            background: green;
+            width: fit-content
+            height: fit-content;
+            border-radius: 2rem;
+            box-shadow: 0 0.1em 0.5em grey;
+            align-items:center;
+            "><p style="display:flex;justify-content:center;align-items:center;margin:0.3rem;padding:0.5rem;color:white;">Available</p></div>
+            <!--<div class='available'><p>Available</p></div>-->
+        {% else %}
+            {#  Colored cirlce:#}
+            <div style="
+            background: red;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 2rem;
+            box-shadow:0 0.1em 0.5em grey;
+            align-items:center;
+            "><p style="display:flex;justify-content:center;align-items:center;margin:0.3rem;padding:0.5rem;color:white;">Unavailable</p></div>
+        {% endif %}
+        </div>
+        <p class="card-text" style="margin-bottom:1rem;margin-top:1rem;">{{ item.description }}</p>
+        <div style="display:flex;flex-direction:row;justify-content:flex-end;">
+        <a href="equipment_detail" class="btn btn-primary">View More</a>
+        <a href="equipment_detail" class="btn btn-primary">Book</a>
+        </div>
+    </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
