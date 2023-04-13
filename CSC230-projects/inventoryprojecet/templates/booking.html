@@ -1,88 +1,154 @@
-<title>Online Booking</title>
-<!--{% extends 'layout.html' %}-->
 {% load static %}
-{% block body %}
-
-
-
-
-<h1 class="text-center  mt-3">Equipment Booking</h1>
-
-<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
-    <form method="post" action="{% url 'booking' %}" class="me-2 ms-2" required>
-        {% csrf_token %}
-
-        <!--input service-->
-        <div>
-            <h3 class="">Select The Equipment:</h3>
-            <select class="form-select fs-3" name="service">
-                {% for item in equipment %}
-                    <option value="{{ item.id }}">{{ item.name }}</option>
-                {% endfor%}
-            </select>
+{% block content %}
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Booking Page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="{% static 'css/booking.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'css/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/scss/bootstrap.scss' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<body data-spy="scroll" data-target="#nav" data-offset="80">
+    <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
+      <div class="container">
+      <button class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+        <a class="navbar-brand mr-auto" href="http://127.0.0.1:8000"><img class="brand-logo"></a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard-index' %}">
+                  <span class="icon">
+                    <i class="bi bi-clipboard"></i>
+                  <span>
+                  <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link active" href="{%url 'booking'  %}">
+                <span class="icon">
+                  <i class="bi bi-laptop"></i>
+                </span>
+                <span class="text">Equipment Booking</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'userPanel' %}">
+                <span class="icon">
+                    <i class="bi bi-person-circle"></i>
+                <span>
+                <span class="text">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'user-logout'  %}">
+                <span class="icon">
+                  <i class="bi bi-box-arrow-in-right"></i>
+                </span>
+                <span class="text">Logout</span>
+              </a>
+            </li>
         </div>
-        <!--input day-->
-        <div class="mt-3">
-            <h3 class="">Select Day:</h3>
-            <select class="form-select fs-3" name="day">
-                {% for validateWeekday in validateWeekdays %}
-                <option value="{{validateWeekday}}">{{validateWeekday}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <br/>
-        <button type="submit" class="btn btn-primary text-white">Continue</button>
-        </div>
-    </form>
-</div>
+      </div>
+    </nav>
 
-
-<!---===== Equipment Cards For Equipment Categories =====-->
-<h1>Equipment List</h1>
-<hr class="divider">
-<div class='card-grid'
-style="display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;margin-top:1rem;margin-bottom:2rem;">
-
-{% for item in equipment %}
-{#  Single Card Template:#}
-    <div class="card" style="width:calc(25% - 2rem);margin-bottom: 1rem;">
-    <img src="{{ item.image }}"class="card-img-top" alt="{{ item.name }}">
-    <!--
-    <img src="static{{ equipment_images }}/{{ item.image }}" class="card-img-top" alt="{{ item.name }}">-->
-    <div class="card-body" style="display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;">
-        <div style="display: flex;flex-direction:column;align-items:center;justify-content:space-between;margin-bottom:1rem;">
-        <h5 class="card-title" style="margin-right:auto;margin-bottom:0.5rem;">{{ item.name }}</h5>
-        {% if item.availability %}
-            {#  Colored cirlce:#}
-            <div style="
-            background: green;
-            width: fit-content;
-            height: fit-content;
-            border-radius: 2rem;
-            box-shadow: 0 0.1em 0.5em grey;
-            align-items:center;
-            "><p style="display:flex;justify-content:center;align-items:center;margin:0.3rem;padding:0.5rem;color:white;">Available</p></div>
-            <!--<div class='available'><p>Available</p></div>-->
-        {% else %}
-            {#  Colored cirlce:#}
-            <div style="
-            background: red;
-            width: fit-content;
-            height: fit-content;
-            border-radius: 2rem;
-            box-shadow:0 0.1em 0.5em grey;
-            align-items:center;
-            "><p style="display:flex;justify-content:center;align-items:center;margin:0.3rem;padding:0.5rem;color:white;">Unavailable</p></div>
-        {% endif %}
-        </div>
-        <p class="card-text" style="margin-bottom:1rem;margin-top:1rem;">{{ item.description }}</p>
-        <div style="display:flex;flex-direction:row;justify-content:flex-end;">
-        <a href="equipment_detail" class="btn btn-primary">View More</a>
-        <a href="equipment_detail" class="btn btn-primary">Book</a>
+    <div class="container-fluid" id="header-sm">
+        <div class = "container" id="page-head">
+            <h1 class="page-title">Equipment Booking</h1>
         </div>
     </div>
+    <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
+        <form method="post" action="{% url 'booking' %}" class="me-2 ms-2" required>
+            {% csrf_token %}
+    
+            <!--input service-->
+            <div>
+              <center>
+                <h3 class="">Select The Equipment:</h3>
+                <select class="form-select fs-3" name="service">
+                    {% for item in equipment %}
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor%}
+                </select>
+              </center>
+            </div>
+            <!--input day-->
+            <div class="mt-3">
+              <center>
+                <h3 class="">Select Day:</h3>
+                <select class="form-select fs-3" name="day">
+                    {% for validateWeekday in validateWeekdays %}
+                    <option value="{{validateWeekday}}">{{validateWeekday}}</option>
+                    {% endfor %}
+                </select>
+              </center>
+            </div>
+            <br/>
+            <center><button type="submit" class="btn btn-primary text-white">Continue</button></center>
+            </div>
+        </form>
     </div>
-{% endfor %}
-</div>
-
-{% endblock %}
+    
+    
+    <!---===== Equipment Cards For Equipment Categories =====-->
+    <h1>Equipment List</h1>
+    <hr class="divider">
+    <div class='card-grid'
+    style="display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;margin-top:1rem;margin-bottom:2rem;">
+    
+    {% for item in equipment %}
+    {#  Single Card Template:#}
+        <div class="card" style="width:calc(25% - 2rem);margin-bottom: 1rem;">
+        <img src="{{ item.image }}"class="card-img-top" alt="{{ item.name }}">
+        <!--
+        <img src="static{{ equipment_images }}/{{ item.image }}" class="card-img-top" alt="{{ item.name }}">-->
+        <div class="card-body" style="display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;">
+            <div style="display: flex;flex-direction:column;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+            <h5 class="card-title" style="margin-right:auto;margin-bottom:0.5rem;">{{ item.name }}</h5>
+            {% if item.availability %}
+                {#  Colored cirlce:#}
+                <div style="
+                background: green;
+                width: fit-content;
+                height: fit-content;
+                border-radius: 2rem;
+                box-shadow: 0 0.1em 0.5em grey;
+                align-items:center;
+                "><p style="display:flex;justify-content:center;align-items:center;margin:0.3rem;padding:0.5rem;color:white;">Available</p></div>
+                <!--<div class='available'><p>Available</p></div>-->
+            {% else %}
+                {#  Colored cirlce:#}
+                <div style="
+                background: red;
+                width: fit-content;
+                height: fit-content;
+                border-radius: 2rem;
+                box-shadow:0 0.1em 0.5em grey;
+                align-items:center;
+                "><p style="display:flex;justify-content:center;align-items:center;margin:0.3rem;padding:0.5rem;color:white;">Unavailable</p></div>
+            {% endif %}
+            </div>
+            <p class="card-text" style="margin-bottom:1rem;margin-top:1rem;">{{ item.description }}</p>
+            <div style="display:flex;flex-direction:row;justify-content:flex-end;">
+            <a href="equipment_detail" class="btn btn-primary">View More</a>
+            <a href="equipment_detail" class="btn btn-primary">Book</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    
+    {% endblock %}
+  <script src="{% static 'js/js/navbar.js'%}"></script>
+</body>
+</html>

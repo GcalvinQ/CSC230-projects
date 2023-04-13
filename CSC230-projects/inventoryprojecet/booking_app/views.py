@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from datetime import datetime, timedelta
 from .models import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='user-login')
 def booking(request):
     ''''''
     # Calling 'validWeekday' function to Loop days you want in the next 21 days
@@ -30,7 +32,7 @@ def booking(request):
         'validateWeekdays': validateWeekdays,
         'equipment': equipment,
     })
-
+@login_required(login_url='user-login')
 def bookingSubmit(request):
     ''' Get session data (equipment, day) then checks which time of the selected date
         is not booked. When the user selects their time it gets stored in the database. 
@@ -66,7 +68,7 @@ def bookingSubmit(request):
                                 time = time,
                             )
                             messages.success(request, "Appointment Saved.")
-                            return redirect('index')
+                            return redirect('booking')
                         else:
                             messages.success(request, "The Selected Time Has Been Reserved.")
                     else:
@@ -80,7 +82,7 @@ def bookingSubmit(request):
     return render(request, 'bookingSubmit.html', {
         'times':hour,
     })
-
+@login_required(login_url='user-login')
 def userPanel(request):
     ''' Show the user's booked appointments and allow users to edit appointments '''
     user = request.user
@@ -89,7 +91,7 @@ def userPanel(request):
         'user':user,
         'appointments': appointments,
     })
-
+@login_required(login_url='user-login')
 def userUpdate(request, id):
     '''  
         Take the id argument from the appointment selected to edit/update appointment
@@ -125,7 +127,7 @@ def userUpdate(request, id):
         'delta24': delta24,
         'id': id,
     })
-
+@login_required(login_url='user-login')
 def userUpdateSubmit(request, id):
     '''
     Save or Update the appointment data
@@ -178,7 +180,7 @@ def userUpdateSubmit(request, id):
         'times':hour,
         'id':id,
     })
-
+@login_required(login_url='user-login')
 def staffPanel(request):
     ''' 
     Shows the bookings for the next 21 days in the template 
@@ -255,7 +257,7 @@ def checkEditTime(times, day, id):
         if Schedule.objects.filter(day=day, time=k).count() < 1 or time == k:
             x.append(k)
     return x
-
+@login_required(login_url='user-login')
 def equipmentPage(request):
     equipment = Equipment.objects.all()
     context = {'equipment': equipment}
