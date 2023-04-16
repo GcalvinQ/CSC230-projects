@@ -5,9 +5,6 @@ from . import models
 from booking_app.views import userPanel
 
 # Create your views here.
-@login_required(login_url='user-login')
-def index(request):
-    return render(request, 'dashboard/index.html')
 
 @login_required(login_url='user-login')
 def staff(request):

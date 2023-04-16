@@ -7,6 +7,16 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required(login_url='user-login')
+def index(request):
+    ''' Show the user's booked appointments and allow users to edit appointments '''
+    user = request.user
+    appointments = Schedule.objects.filter(user=user).order_by('day', 'time')
+    return render(request, 'dashboard.html', {
+        'user':user,
+        'appointments': appointments,
+    })
+
+@login_required(login_url='user-login')
 def booking(request):
     ''''''
     # Calling 'validWeekday' function to Loop days you want in the next 21 days
