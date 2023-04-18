@@ -10,7 +10,7 @@
                     <form method="POST">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <input class="btn btn-dark btn-block" type="submit" value="Make Request">
+                        <input class="btn btn-info btn-block" type="submit" value="Make Request">
                     </form>
                 </div>
             </div>
@@ -22,22 +22,22 @@
                 </div>
                 <div class="card-body">
                     <table class="table bg-white">
-                        <thead class="bg-dark text-white">
+                        <thead class="bg-info text-white">
                             <tr>
                                 <th scope="col">Product</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">Ordered by</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             {% for order in order %}
-                            {% if order.customer == user %}
+                            
                             <tr>
                                 <td>{{ order.name }}</td>
-                                <td>{{ order.name.category }}</td>
-                                <td>{{ order.order_quantity }}</td>
+                                <td>{{ order.staff.first_name }} {{ order.staff.last_name }}</td>
+                               
                             </tr>
-                            {% endif %}
+                            
                             {% endfor %}
                         </tbody>
                     </table>

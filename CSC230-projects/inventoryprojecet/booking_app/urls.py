@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('dashboard/', views.index, name='dashboard-index'),
     path('booking', views.booking, name='booking'),
     path('booking-submit', views.bookingSubmit, name='bookingSubmit'),
     path('user-panel', views.userPanel, name='userPanel'),

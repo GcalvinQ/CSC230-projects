@@ -91,7 +91,7 @@
                       <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
-                                  <h4>Staff <i class="fas fa-users"></i></h4>
+                                  <h4>Users <i class="fas fa-users"></i></h4>
                                   <h3>{{ customer_count }}</h3>
                               </div>
                           </div>
@@ -119,5 +119,30 @@
               </div>
           </div>
       </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Ordered by</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in order %}
+                    <tr>
+                        <td>{{ order.name }}</td>
+                        <td>{{ order.staff.first_name }} {{ order.staff.last_name }}</td>
+                        <td>
+                            <a class="btn btn-danger btn-sm ml-2"
+                                href="{% url 'dashboard-order-delete' order.id %}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

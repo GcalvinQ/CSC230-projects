@@ -92,7 +92,7 @@
                       <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
-                                  <h4>Staff <i class="fas fa-users"></i></h4>
+                                  <h4>Users <i class="fas fa-users"></i></h4>
                                   <h3>{{ customer_count }}</h3>
                               </div>
                           </div>
@@ -129,20 +129,7 @@
                 Reservations
             </div>
             <div class="card-body">
-              {%if appointments|length > 0 %}
-                {% for appointment in appointments %}
-                <div class="list-group fs-4 border p-3 mb-3">
-                    <p class="list-group mt-2">Day: {{ appointment.day }}</p>
-                    <p class="list-group mt-2">Time: {{ appointment.time }}</p>
-                    <p class="list-group mt-2">Service: {{ appointment.service }}</p>
-                    <div class="mt-3 mb-2">
-                        <a class="btn btn-primary rounded-3 p-2" href="{% url 'userUpdate' appointment.id %}">Edit Appointment</a>
-                    </div>
-                </div>
-                {% endfor %}
-              {% else %}
-                <center><b><p>No Reservations</p></b></center>
-              {% endif %}
+              <center><b><p>No Reservations</p></b></center>
             </div>
           </div>
         </div>
