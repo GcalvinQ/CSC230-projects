@@ -103,4 +103,4 @@ def order_delete(request, pk):
     context = {
         'order': order
     }
-    return render(request, 'dashboard/orders_delete.html', context)
+    return render(request, 'dashboard/order_delete.html', context)

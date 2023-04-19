@@ -100,7 +100,7 @@
                       <a class="text-decoration-none text-dark" href="{% url 'dashboard-product' %}">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
-                                  <h4>Products <i class="fas fa-box"></i></h4>
+                                  <h4>Equipment <i class="fas fa-box"></i></h4>
                               </div>
                           </div>
                       </a>
@@ -118,20 +118,59 @@
           </div>
       </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-md-12" style="padding-left: 30px; width: 445px !important;">
-            <table class="table bg-white">
+    <div class="row mt-5" style="padding-left: 30px !important;">
+      <div class = "card" style="width: 357px !important;">
+        <div class="card-header bg-dark text-white">
+          Emergency
+        </div>
+        <div class="card-body">
+          <center>
+            <div class="card my-card shadow" style="width: 170px;">
+              <button style = "background-color: red;" id = "alert"><h4 style="color: white;">Emergency</h4></button>
+            </div>
+          </center>
+          <script>
+            function sendMessage(){
+              const request = new XMLHttpRequest();
+              request.open("POST", "https://discord.com/api/webhooks/1097693873557479474/5jRi-da08imoxOrHkD8qFZRuDzewkiDA0APmvgj5DerVsUiOTwibOY9pVUVU-tI-5GrU");
+              request.setRequestHeader('Content-type', 'application/json')
+              var myEmbed = {
+                title: "🚨🚨Emergency🚨🚨",
+                description: "{{user.first_name}} " + "{{user.last_name}} " + "has pressed the emergency button."
+              }
+              var params = {
+                username: "Makerspace",
+                embeds: [ myEmbed ]
+              }
+              request.send(JSON.stringify(params));
+            }
+            const button = document.getElementById('alert');
+            button.addEventListener('click', () => {
+              // Execute the sendMessage JavaScript function
+              sendMessage();
+              
+              // Display a popup alert
+              alert('You have clciked the emergency button. A messgae has been sent to the CS professors to provide assistance.');
+            });
+          </script>
+        </div>
+      </div>
+        <div class="col-md-6" style="padding-left: 27px !important; width: 627px !important; padding-right: 0px !important;">
+            <table class="table bg-white" style="width: 740px !important;">
                 <thead class="bg-info text-white">
                     <tr>
-                        <th scope="col">Product</th>
-                        <th scope="col" style = "padding-left: 130px !important;">Ordered by</th>
+                        <th scope="col">Queue</th>
+                        <th scope="col">Equipment</th>
+                        <th scope="col" style = "padding-left: 130px !important;">Reserved By</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for order in order %}
                     <tr>
+                        <td>{{forloop.counter}}</td>
                         <td>{{ order.name }}</td>
-                        <td>{{ order.staff.first_name }} {{ order.staff.last_name }}</td>
+                        <td style="padding-left: 125px !important;">{{ order.staff.first_name }} {{ order.staff.last_name }}</td>
                         <td>
                             <a class="btn btn-danger btn-sm ml-2"
                                 href="{% url 'dashboard-order-delete' order.id %}">Delete</a>
