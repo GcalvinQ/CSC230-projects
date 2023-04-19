@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 <div>
     <div class="row mt-4">
-        <div class="col-md-4">
+        <div class="col-md-4" style="padding-left: 30px !important;">
             <div class="card">
                 <div class="card-header">
                     Make Request
@@ -14,33 +14,98 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-5">
                 <div class="card-header">
-                    Orders Records
+                    All Requipment Reservations
                 </div>
                 <div class="card-body">
                     <table class="table bg-white">
                         <thead class="bg-info text-white">
                             <tr>
-                                <th scope="col">Product</th>
+                                <th scope="col">Queue</th>
+                                <th scope="col">Equipment</th>
+                                <th scope="col">Reserved By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in order %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{ order.name }}</td>
+                                <td>{{ order.staff.first_name }} {{ order.staff.last_name }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" style="padding-right: 30px !important;">
+            <div class="card">
+                <div class="card-header">
+                    Your Reservations
+                </div>
+                <div class="card-body">
+                    <table class="table bg-white">
+                        <thead class="bg-info text-white">
+                            <tr>
+                                <th scope="col">Equipment</th>
                                 <th scope="col">Ordered by</th>
+                                <th></th>
                                 
                             </tr>
                         </thead>
                         <tbody>
                             {% for order in order %}
-                            
+                            {% if order.staff.first_name and order.staff.first_name == user.first_name and user.last_name %}
                             <tr>
                                 <td>{{ order.name }}</td>
                                 <td>{{ order.staff.first_name }} {{ order.staff.last_name }}</td>
-                               
+                                <td>
+                                    <a class="btn btn-danger btn-sm ml-2"
+                                        href="{% url 'dashboard-order-delete' order.id %}">Delete</a>
+                                </td>
                             </tr>
-                            
+                            {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class = "card mt-5">
+                <div class="card-header">
+                    Emergency
+                </div>
+                <div class="card-body">
+                  <center>
+                    <div class="card my-card shadow" style="width: 170px;">
+                      <button style = "background-color: red;" id = "alert"><h4 style="color: white;">Emergency</h4></button>
+                    </div>
+                  </center>
+                  <script>
+                    function sendMessage(){
+                      const request = new XMLHttpRequest();
+                      request.open("POST", "https://discord.com/api/webhooks/1097693873557479474/5jRi-da08imoxOrHkD8qFZRuDzewkiDA0APmvgj5DerVsUiOTwibOY9pVUVU-tI-5GrU");
+                      request.setRequestHeader('Content-type', 'application/json')
+                      var myEmbed = {
+                        title: "🚨🚨Emergency🚨🚨",
+                        description: "{{user.first_name}} " + "{{user.last_name}} " + "has pressed the emergency button."
+                      }
+                      var params = {
+                        username: "Makerspace",
+                        embeds: [ myEmbed ]
+                      }
+                      request.send(JSON.stringify(params));
+                    }
+                    const button = document.getElementById('alert');
+                    button.addEventListener('click', () => {
+                      // Execute the sendMessage JavaScript function
+                      sendMessage();
+                      
+                      // Display a popup alert
+                      alert('You have clciked the emergency button. A messgae has been sent to the CS professors to provide assistance.');
+                    });
+                  </script>
                 </div>
             </div>
         </div>

@@ -99,7 +99,7 @@ def order_delete(request, pk):
     order = Order.objects.get(id=pk)
     if request.method == 'POST':
          order.delete()
-         return redirect('dashboard-order')
+         return redirect('dashboard-index')
     context = {
         'order': order
     }
