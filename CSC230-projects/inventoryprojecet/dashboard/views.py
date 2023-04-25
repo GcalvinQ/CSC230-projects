@@ -104,3 +104,9 @@ def order_delete(request, pk):
         'order': order
     }
     return render(request, 'dashboard/order_delete.html', context)
+
+def order_delete_all(request):
+    if request.method == 'POST':
+        Order.objects.all().delete()
+        return redirect('dashboard-index')
+    return render(request, 'dashboard/order_delete_all.html')

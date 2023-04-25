@@ -30,6 +30,7 @@ urlpatterns = [
     path('', include('dashboard.urls')),
      path('', include('booking_app.urls')),
     path('register/', user_views.register, name='user-register'),
+    path('registerfail/', user_views.registerFail, name = 'user-registerfail'),
     path('login/', auth_views.LoginView.as_view(
         template_name='user/login.html'), name='user-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='user/logout.html'),
