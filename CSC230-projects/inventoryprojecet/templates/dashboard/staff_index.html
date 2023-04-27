@@ -1,5 +1,75 @@
+{% load static %}
 {% load crispy_forms_tags %}
-<div>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="{% static 'css/loginPage.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'css/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/scss/bootstrap.scss' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link href="{% static 'css/cardtest.css'%}" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/main.js'%}"></script>
+{% if perms.trained %}
+</head>
+<body data-spy="scroll" data-target="#nav" data-offset="80">
+  <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
+    <div class="container">
+    <button class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button>
+      <a class="navbar-brand mr-auto" href="http://127.0.0.1:8000"><img class="brand-logo"></a>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link active" href="{% url 'dashboard-index' %}">
+                <span class="icon">
+                  <i class="bi bi-clipboard"></i>
+                <span>
+                <span class="text">Dashboard</span>
+              </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{%url 'booking'  %}">
+              <span class="icon">
+                <i class="bi bi-laptop"></i>
+              </span>
+              <span class="text">Equipment Booking</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'userPanel' %}">
+              <span class="icon">
+                  <i class="bi bi-person-circle"></i>
+              <span>
+              <span class="text">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'user-logout'  %}">
+              <span class="icon">
+                <i class="bi bi-box-arrow-in-right"></i>
+              </span>
+              <span class="text">Logout</span>
+            </a>
+          </li>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" id="header-sm">
+      <div class = "container" id="page-head">
+          <h1 class="page-title">Dashboard</h1>
+      </div>
+  </div>
+  <div>
     <div class="row mt-4">
         <div class="col-md-4" style="padding-left: 30px !important;">
             <div class="card">
@@ -110,4 +180,192 @@
             </div>
         </div>
     </div>
-</div>
+  </div>
+</body>
+{% else %}
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/d/y3p-z8m-mm6/one-off-meeting?month=2023-04', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+</head>
+<body data-spy="scroll" data-target="#nav" data-offset="80">
+    <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
+      <div class="container">
+      <button class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+        <a class="navbar-brand mr-auto" href="http://127.0.0.1:8000"><img class="brand-logo"></a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'dashboard-index' %}">
+                  <span class="icon">
+                    <i class="bi bi-clipboard"></i>
+                  <span>
+                  <span class="text">Training</span>
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'userPanel' %}">
+                <span class="icon">
+                    <i class="bi bi-person-circle"></i>
+                <span>
+                <span class="text">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'user-logout'  %}">
+                <span class="icon">
+                  <i class="bi bi-box-arrow-in-right"></i>
+                </span>
+                <span class="text">Logout</span>
+              </a>
+            </li>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="container-fluid" id="header-sm">
+        <div class = "container" id="page-head">
+            <h1 class="page-title">Training</h1>
+        </div>
+    </div>
+    <div class="container section">
+      <div class="row">
+        <div class="col-sm-4 mt-4" style="height:175px;">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    Information
+                </div>
+                <div class="card-body">
+                    <marquee behavior="" direction="">
+                        <h3 class="my-4">Welcome {{ user.first_name }} {{ user.last_name }} to the Makerspace</h3>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-4">
+          <div class="card">
+              <div class="card-header bg-dark text-white">
+                  Need Training
+              </div>
+              <div class="card-body">
+                <div class="row">
+                    <p>Unfortunately you have not completed the necessary training to use the equipment. Please click on the equipment below to watch the videos and please sign-up for the live training hosted by Dr. Gourd.</p> 
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 mt-5" style="padding-left: 30px; width: 403px; height: auto;">
+          <div class="card">
+              <div class="card-header bg-dark text-white">
+                  Emergency
+              </div>
+              <div class="card-body">
+                <center>
+                    <div class="card my-card shadow" style="width: 170px;">
+                      <button style = "background-color: red;" id = "alert"><h4 style="color: white;">Emergency</h4></button>
+                    </div>
+                  </center>
+                  <script>
+                    function sendMessage(){
+                      const request = new XMLHttpRequest();
+                      request.open("POST", "https://discord.com/api/webhooks/1100427461021413426/zdfFeCk1Y-EiBFrUcUlcIK1OwzAJx5AKxyM3LD9nk8WHDbjHLzrMkSjYltjm6Oiq0p96");
+                      request.setRequestHeader('Content-type', 'application/json')
+                      var myEmbed = {
+                        title: "🚨🚨Emergency🚨🚨",
+                        description: "{{user.first_name}} " + "{{user.last_name}} " + "has pressed the emergency button."
+                      }
+                      var params = {
+                        username: "Makerspace",
+                        embeds: [ myEmbed ],
+                        channel_id: "1097692930669555855"
+                      }
+                      request.send(JSON.stringify(params));
+                    }
+                    const button = document.getElementById('alert');
+                    button.addEventListener('click', () => {
+                      // Execute the sendMessage JavaScript function
+                      sendMessage();
+                      
+                      // Display a popup alert
+                      alert('You have clciked the emergency button. A messgae has been sent to the CS professors to provide assistance.');
+                    });
+                  </script>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 mt-5" style="padding-left: 25px;">
+          <div class="card">
+            <div class="card-header bg-dark text-white">
+                Equipment
+            </div>
+            <button onclick="toggleTheme()" class="themer"></button>
+            <div class="card-body">
+                <div class="profile" onclick="showPopup()">
+                    <div class="profile__banner" style="background-color: transparent;"></div>
+                    <div>
+                        <div class="profile__pic">
+                            <img src="{% static 'img/3D.jpg'%}" alt="Profile picture of 3D Printer">
+                        </div>
+                        <div class="profile__info">
+                            <span class="profile__info-display">3D Printer</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <script>
+                function showPopup() {
+                    // create an iframe element
+                    var iframe = document.createElement("iframe");
+                    
+                    // set the iframe source URL to the YouTube video
+                    iframe.src = "https://www.youtube.com/embed/fklDV0Qnna8";
+                    
+                    // set the width and height of the iframe
+                    iframe.width = "560";
+                    iframe.height = "315";
+                    
+                    // create a container element for the popup window
+                    var container = document.createElement("div");
+                    container.style.position = "fixed";
+                    container.style.top = "50%";
+                    container.style.left = "50%";
+                    container.style.transform = "translate(-50%, -50%)";
+                    container.style.backgroundColor = "#fff";
+                    container.style.padding = "20px";
+                    container.style.boxShadow = "0 0 20px rgba(0, 0, 0, 0.2)";
+                    container.style.zIndex = "9999";
+                    
+                    // create a close button for the popup window
+                    var closeButton = document.createElement("button");
+                    closeButton.innerHTML = "X";
+                    closeButton.style.position = "absolute";
+                    closeButton.style.top = "10px";
+                    closeButton.style.right = "10px";
+                    closeButton.addEventListener("click", hidePopup);
+                    
+                    // append the iframe and close button to the container
+                    container.appendChild(closeButton);
+                    container.appendChild(iframe);
+                    
+                    // append the container to the document body
+                    document.body.appendChild(container);
+                }
+		
+                function hidePopup() {
+                    // find the popup container and remove it from the document body
+                    var container = document.querySelector(".popup-container");
+                    document.body.removeChild(container);
+                }
+	        </script>
+        </div>
+      </div>
+    </div>
+</body>
+{% endif %}

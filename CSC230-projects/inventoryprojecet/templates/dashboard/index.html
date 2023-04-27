@@ -1,5 +1,6 @@
 {% load static %}
 <html>
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
 <head>
 <meta charset="UTF-8">
 <title>Dashboard</title>
@@ -66,7 +67,6 @@
           <h1 class="page-title">Dashboard</h1>
       </div>
   </div>
-  {% if user.is_authenticated and user.is_staff and user.is_superuser %}
   <div class="container section">
     <div class="row">
       <div class="col-sm-4 mt-4" style="height:175px;">
@@ -171,9 +171,10 @@
       </div>
     </div>
   </div>
-  {% else %}
-  {% include 'dashboard/staff_index.html' %}
-  {% endif%}
 </body>
+{% else %}
+{% include 'dashboard/staff_index.html' %}
+{% endif%}
+</html>
 
                                 
