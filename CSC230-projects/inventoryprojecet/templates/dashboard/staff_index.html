@@ -185,7 +185,12 @@
 {% else %}
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/d/y3p-z8m-mm6/one-off-meeting?month=2023-04', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/d/y3p-z8m-mm6/one-off-meeting?month=2023-04', text: 'Join Equipment Training', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+<style>
+  .profile{
+    width: 200px !important;
+  }
+</style>
 </head>
 <body data-spy="scroll" data-target="#nav" data-offset="80">
     <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
@@ -315,55 +320,213 @@
                         <div class="profile__info">
                             <span class="profile__info-display">3D Printer</span>
                         </div>
+                        <div id="popup-container">
+                        </div>
                     </div>
                 </div>
-
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/laser.jpg'%}" alt="Profile picture of Laser">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Laser</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Milling.jpg'%}" alt="Profile picture of Milling Machine">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Milling Machine</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Soldering.jpg'%}" alt="Profile picture of Soldering Iron">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Soldering Iron</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Waveform.jpg'%}" alt="Profile picture of Waveform Generator">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Function Generator</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Multimeter.jpg'%}" alt="Profile picture of Multimeter">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Multimeter</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Oscilloscope.jpg'%}" alt="Profile picture of Oscilloscope">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Oscilloscope</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Power.jpg'%}" alt="Profile picture of Power Supply">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Power Supply</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Former.jpg'%}" alt="Profile picture of Desktop Forming Vacumm Machine">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Vacuum Former</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Vinyl.jpg'%}" alt="Profile picture of Roland Vinyl Cutter">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Roland Vinyl Cutter</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/Press.jpg'%}" alt="Profile picture of Power Press">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">Power Press</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+                <div class="profile" onclick="showPopup()">
+                  <div class="profile__banner" style="background-color: transparent;"></div>
+                  <div>
+                      <div class="profile__pic">
+                          <img src="{% static 'img/HP.jpg'%}" alt="Profile picture of HP DesignJet">
+                      </div>
+                      <div class="profile__info">
+                          <span class="profile__info-display">HP DesignJet</span>
+                      </div>
+                  </div>
+                  <div id="popup-container">
+                  </div>
+                </div>
+              </div>
             </div>
             <script>
-                function showPopup() {
-                    // create an iframe element
-                    var iframe = document.createElement("iframe");
-                    
-                    // set the iframe source URL to the YouTube video
-                    iframe.src = "https://www.youtube.com/embed/fklDV0Qnna8";
-                    
-                    // set the width and height of the iframe
-                    iframe.width = "560";
-                    iframe.height = "315";
-                    
-                    // create a container element for the popup window
-                    var container = document.createElement("div");
-                    container.style.position = "fixed";
-                    container.style.top = "50%";
-                    container.style.left = "50%";
-                    container.style.transform = "translate(-50%, -50%)";
-                    container.style.backgroundColor = "#fff";
-                    container.style.padding = "20px";
-                    container.style.boxShadow = "0 0 20px rgba(0, 0, 0, 0.2)";
-                    container.style.zIndex = "9999";
-                    
-                    // create a close button for the popup window
-                    var closeButton = document.createElement("button");
-                    closeButton.innerHTML = "X";
-                    closeButton.style.position = "absolute";
-                    closeButton.style.top = "10px";
-                    closeButton.style.right = "10px";
-                    closeButton.addEventListener("click", hidePopup);
-                    
-                    // append the iframe and close button to the container
-                    container.appendChild(closeButton);
-                    container.appendChild(iframe);
-                    
-                    // append the container to the document body
-                    document.body.appendChild(container);
+              function showPopup() {
+                const popupContainer = document.getElementById("popup-container");
+                const embedURL = "https://www.youtube.com/embed/fklDV0Qnna8";
+            
+                // Create the video container element dynamically
+                const videoContainer = document.createElement("div");
+                videoContainer.id = "video-container";
+                videoContainer.innerHTML = '<iframe width="560" height="315" src="' + embedURL + '" frameborder="0" allowfullscreen></iframe>';
+            
+                // Append the video container element to the popup container
+                popupContainer.appendChild(videoContainer);
+            
+                // Show the popup container
+                popupContainer.style.display = "block";
+                popupContainer.style.position = "fixed";
+                popupContainer.style.top = "0";
+                popupContainer.style.left = "0";
+                popupContainer.style.width = "100%";
+                popupContainer.style.height = "100%";
+                popupContainer.style.backgroundColor = "rgba(0,0,0,0.8)";
+                popupContainer.style.zIndex = "9999";
+            
+                // Set the styles for the video container
+                videoContainer.style.position = "absolute";
+                videoContainer.style.top = "50%";
+                videoContainer.style.left = "50%";
+                videoContainer.style.transform = "translate(-50%, -50%)";
+
+                popupContainer.addEventListener("mousedown", hidePopup);
+              }
+
+            
+              function hidePopup(event) {
+                const popupContainer = document.getElementById("popup-container");
+                const videoContainer = document.getElementById("video-container");
+            
+                // Check if the videoContainer exists before trying to remove it
+                if (videoContainer) {
+                  popupContainer.removeChild(videoContainer);
                 }
-		
-                function hidePopup() {
-                    // find the popup container and remove it from the document body
-                    var container = document.querySelector(".popup-container");
-                    document.body.removeChild(container);
+            
+                popupContainer.style.display = "none";
+              }
+            
+              // Add the styles for the popup and video containers to the head of the document
+              const style = document.createElement('style');
+              style.innerHTML = `
+                #popup-container {
+                  display: none;
                 }
-	        </script>
+                #video-container iframe {
+                  width: 560px;
+                  height: 315px;
+                }
+              `;
+              document.head.appendChild(style);
+            </script>
         </div>
       </div>
     </div>

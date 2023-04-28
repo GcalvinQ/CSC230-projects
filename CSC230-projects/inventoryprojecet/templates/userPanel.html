@@ -13,6 +13,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
+{% if perms.trained %}
 <body data-spy="scroll" data-target="#nav" data-offset="80">
   <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
     <div class="container">
@@ -60,6 +61,47 @@
       </div>
     </div>
   </nav>
+{% else %}
+<body data-spy="scroll" data-target="#nav" data-offset="80">
+  <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
+    <div class="container">
+    <button class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button>
+      <a class="navbar-brand mr-auto" href="http://127.0.0.1:8000"><img class="brand-logo"></a>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'dashboard-index' %}">
+                <span class="icon">
+                  <i class="bi bi-clipboard"></i>
+                <span>
+                <span class="text">Training</span>
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'userPanel' %}">
+              <span class="icon">
+                  <i class="bi bi-person-circle"></i>
+              <span>
+              <span class="text">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'user-logout'  %}">
+              <span class="icon">
+                <i class="bi bi-box-arrow-in-right"></i>
+              </span>
+              <span class="text">Logout</span>
+            </a>
+          </li>
+      </div>
+    </div>
+  </nav>
+{% endif %}
   <div class="container-fluid" id="header-sm">
       <div class = "container" id="page-head">
           <h1 class="page-title">Profile</h1>
