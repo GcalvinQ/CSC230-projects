@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <html>
 {% if user.is_authenticated and user.is_staff and user.is_superuser %}
 <head>
@@ -89,7 +90,7 @@
             <div class="card-body">
               <div class="row">
                   <div class="col-md-4">
-                      <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
+                      <a class="text-decoration-none text-dark" href="http://127.0.0.1:8000/admin" target="_blank">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
                                   <h4>Users <i class="fas fa-users"></i></h4>
@@ -123,10 +124,14 @@
       <div class="col-xl-12 mt-5" style="padding-left: 30px; width: 403px; height: auto;">
         <div class="card">
             <div class="card-header bg-dark text-white">
-                Reservations
+                Make Request
             </div>
             <div class="card-body">
-              <center><b><p>No Reservations</p></b></center>
+              <form method="POST">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <input class="btn btn-info btn-block" type="submit" value="Make Request">
+              </form>
             </div>
           </div>
         </div>

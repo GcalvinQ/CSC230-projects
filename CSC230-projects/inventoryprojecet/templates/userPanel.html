@@ -13,7 +13,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
-{% if perms.trained %}
+{% if perms.user.trained %}
 <body data-spy="scroll" data-target="#nav" data-offset="80">
   <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
     <div class="container">
