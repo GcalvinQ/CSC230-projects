@@ -87,8 +87,9 @@
             </div>
             <div class="card-body">
               <div class="row">
+                  {% if user.is_staff and user.is_superuser %}
                   <div class="col-md-4">
-                      <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
+                    <a class="text-decoration-none text-dark" href="http://127.0.0.1:8000/admin" target="_blank">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
                                   <h4>Users <i class="fas fa-users"></i></h4>
@@ -115,6 +116,27 @@
                       </a>
                   </div>
               </div>
+              {% elif perms.user.worker %}
+              <div class="col-md-6">
+                  <a class="text-decoration-none text-dark" href="{% url 'dashboard-product' %}">
+                      <div class="card my-card shadow">
+                          <div class="card-body text-center">
+                              <h4>Equipment <i class="fas fa-box"></i></h4>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div class="col-md-6">
+                  <a class="text-decoration-none text-dark" href="http://127.0.0.1:8000/dashboard">
+                      <div class="card my-card shadow">
+                          <div class="card-body text-center">
+                              <h4>Dashboard <i class="fas fa-tachometer-alt"></i></h4>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              {% endif %}
+            </div>
           </div>
       </div>
     </div>
