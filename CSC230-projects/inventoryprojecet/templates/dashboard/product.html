@@ -143,7 +143,7 @@
       </div>
     </div>
     <div class="row mt-5">
-        <div class="col-md-5" style="padding-left: 30px; width: 185px !important">
+        <div class="col-md-4" style="padding-left: 15px;">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
@@ -220,4 +220,20 @@
             </table>
         </div>
     </div>
-</div>
+  </div>
+  <div class="footer">
+    <div class="container footer-content">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>&copy; 2023 The University of Tampa</p>
+        </div>
+        <div class="col-sm-6">
+          <div class="footer-links">
+            <a class="footer-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfJeXRSZDC3AUl9VI0vIv-r0BLjoAYv9nz42-XkS6GwQnSfew/viewform?usp=sf_link" target="_blank">Bugs</a> | <a class="footer-link" href="{%url 'team'  %}">Team</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
