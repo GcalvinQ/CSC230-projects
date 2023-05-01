@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Delete</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
@@ -33,6 +33,7 @@
                 <span class="text">Dashboard</span>
               </a>
           </li>
+          <!--
           <li class="nav-item ">
             <a class="nav-link" href="{%url 'booking'  %}">
               <span class="icon">
@@ -41,6 +42,7 @@
               <span class="text">Equipment Booking</span>
             </a>
           </li>
+          -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'userPanel' %}">
               <span class="icon">
@@ -63,7 +65,7 @@
 
   <div class="container-fluid" id="header-sm">
       <div class = "container" id="page-head">
-          <h1 class="page-title">Delete {{ item }}</h1>
+          <h1 class="page-title">Delete {{ order.name }}</h1>
       </div>
   </div>
 
@@ -74,7 +76,7 @@
                 <hr>
                 <form method="POST">
                     <div class="alert alert-danger">
-                        <h4>Are you sure, you want to delete {{ item }}?</h4>
+                        <h4>Are you sure, you want to delete {{ order.name }}?</h4>
                     </div>
                     {% csrf_token %}
                     {{ form }}
