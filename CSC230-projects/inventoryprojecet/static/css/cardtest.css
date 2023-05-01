@@ -11,7 +11,7 @@
     color: white;
 }
 
-
+/* Card theme */
 .themer {
     all: unset;
     padding: 4px;
@@ -141,7 +141,7 @@
         .profile__data > * > *:nth-child(2) {
             font-size: 0.9rem;
         }
-
+/* Animation for the card */
 @keyframes reveal {
     0% {
         opacity: 0;

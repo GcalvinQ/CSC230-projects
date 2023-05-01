@@ -4,7 +4,9 @@
 {% if user.is_authenticated and user.is_staff and user.is_superuser %}
 <head>
 <meta charset="UTF-8">
+<!-- Dashboard title -->
 <title>Dashboard</title>
+<!-- All the stylesheets and JS-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
@@ -15,7 +17,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
+<!-- Body -->
 <body data-spy="scroll" data-target="#nav" data-offset="80">
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-toggleable-sm fixed-top navbar-transparent navbar-inverse navbar-fix" id="nav">
     <div class="container">
     <button class="navbar-toggler navbar-toggler-left collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -65,6 +69,7 @@
 
   <div class="container-fluid" id="header-sm">
       <div class = "container" id="page-head">
+        <!-- Page Header -->
           <h1 class="page-title">Dashboard</h1>
       </div>
   </div>
@@ -72,6 +77,7 @@
     <div class="row">
       <div class="col-sm-4 mt-4" style="height:175px;">
           <div class="card">
+            <!-- Information marquee -->
               <div class="card-header bg-dark text-white">
                   Information
               </div>
@@ -84,6 +90,7 @@
       </div>
       <div class="col-md-8 mt-4">
         <div class="card">
+          <!-- Dashboard Tools -->
             <div class="card-header bg-dark text-white">
                 Dashboard Tools
             </div>
@@ -91,6 +98,7 @@
             <div class="card-body">
               <div class="row">
                   <div class="col-md-4">
+                    <!-- Admin Page -->
                       <a class="text-decoration-none text-dark" href="http://127.0.0.1:8000/admin" target="_blank">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
@@ -100,6 +108,7 @@
                       </a>
                   </div>
                   <div class="col-md-4">
+                    <!-- Equipment dashboard -->
                       <a class="text-decoration-none text-dark" href="{% url 'dashboard-product' %}">
                           <div class="card my-card shadow">
                               <div class="card-body text-center">
@@ -108,6 +117,7 @@
                           </div>
                       </a>
                   </div>
+                  <!-- Reservation page -->
                   <div class="col-md-4">
                       <a class="text-decoration-none text-dark" href="{% url 'dashboard-order' %}">
                           <div class="card my-card shadow">
@@ -124,6 +134,7 @@
     <div class="row">
       <div class="col-xl-12 mt-5" style="padding-left: 30px; width: 403px; height: auto;">
         <div class="card">
+          <!-- Request form -->
             <div class="card-header bg-dark text-white">
                 Make Request
             </div>
@@ -139,6 +150,7 @@
       </div>
       <div class="col-lg-8 mt-5" style="padding-left: 25px;">
         <div class="card">
+          <!-- Emergency button -->
           <div class="card-header bg-dark text-white">
               Emergency
           </div>
@@ -148,6 +160,7 @@
                 <button style = "background-color: red;" id = "alert"><h4 style="color: white;">Emergency</h4></button>
               </div>
             </center>
+            <!-- Discord.js code for sending a message to discord -->
             <script>
               function sendMessage(){
                 const request = new XMLHttpRequest();
@@ -177,6 +190,7 @@
       </div>
     </div>
   </div>
+  <!-- Footer -->
   <div class="footer">
     <div class="container footer-content">
       <div class="row">
@@ -193,6 +207,7 @@
     </div>
   </div>
 </body>
+<!-- If the user is a worker and is trained -->
 {% elif perms.user.worker and perms.user.trained %}
 <head>
   <meta charset="UTF-8">
@@ -376,6 +391,7 @@
       </div>
     </div>
   </body>
+<!-- If the user is not a staff -->
 {% else %}
 {% include 'dashboard/staff_index.html' %}
 {% endif%}

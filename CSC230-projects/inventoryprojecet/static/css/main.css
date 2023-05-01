@@ -577,6 +577,7 @@ a:hover {
   border-radius: 0.25rem;
 }
 
+/* CSS for mobile devices */
 
 @media (max-width: 991px) {
   .navbar-brand {

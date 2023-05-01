@@ -4,12 +4,12 @@ from user.permissions import UserPermsissions
 
 # Create your models here.
 
-
+#Profile backend
 class Profile(models.Model):
     staff = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
     image = models.ImageField(default='avatar.jpg',
                               upload_to='profile_images')
-    
+    #Permissions
     class Meta:
         permissions = [
             ('trained', 'Trained'),

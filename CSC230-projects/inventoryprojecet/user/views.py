@@ -1,84 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
-
-# Create your views here.
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = CreateUserForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             return redirect('user-login')
-#     else:
-#         form = CreateUserForm()
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'user/register.html', context)
-
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 
 
 # Create your views here.
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = CreateUserForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             return redirect('user-login')
-#     else:
-#         form = CreateUserForm()
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'user/register.html', context)
-
-# import os
-# import csv
-# import hashlib
-
-# def register(request):
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         hashed_email = hashlib.sha256(email.encode()).hexdigest()
-
-#         # Get the absolute path to the CSV file
-#         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#         csv_path = os.path.join(BASE_DIR, 'data', 'CS-majors-minors.csv')
-
-
-#         # Check if the email exists in the CSV file
-#         with open(csv_path, 'r') as csvfile:
-#             reader = csv.DictReader(csvfile)
-#             for row in reader:
-#                 if row['Spartans Email Address'] == hashed_email:
-#                     # If the email exists, create the user and redirect to the login page
-#                     form = CreateUserForm(request.POST)
-#                     if form.is_valid():
-#                         user = form.save()
-#                         return redirect('user-login')
-#                     else:
-#                         messages.error(request, 'Invalid form')
-#                         form = CreateUserForm()
-#                         context = {'form': form}
-#                         return render(request, 'user/register.html', context)
-#             # If the email doesn't exist, display an error message
-#             messages.error(request, 'Email not found')
-#     else:
-#         form = CreateUserForm()
-#     context = {
-#         'form': form
-#         }
-#     return render(request, 'user/register.html', context)
-
-
 
 import os
 import csv

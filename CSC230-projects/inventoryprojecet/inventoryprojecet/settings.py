@@ -162,6 +162,6 @@ EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER ='mediag450@gmail.com'
+EMAIL_HOST_USER ='utmakerspace2023@gmail.com'
 
-EMAIL_HOST_PASSWORD ='zwphbixxwiogtfnq'
+EMAIL_HOST_PASSWORD ='rldldmnrxpcdciip'
