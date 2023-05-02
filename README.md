@@ -10,5 +10,32 @@ Kan-Ban: https://trello.com/invite/b/jMTa9V4y/ATTIa5fd906fc4b99ccf1735309d801d4f
 
 To access the website, you must first install django, a virtual environment and the files for the website.
 
+##INSTALLING DJANGO
+Open terminal/command prompt
+Type pip3 install django
+(If pip is not installed: type python get-pip.py for mac or py get-pip.py for windows)
+Type pip3 instll python
+To see if it installed correctly, type django-admin --version
+
 ##INSTALLING VIRTUAL ENVIRONMENT
+Open terminal/command prompt
+Type pip3 install virtualenv env
+Type pip3 install virtualenvwrapper
+Type source venv/bin/activate (Mac)
+Type env\scripts\activate (Windows)
+
+##CREATING AND INSTALLING THE DJANGO PROJECT
+In the terminal/CMD make sure that you know what directory you are in
+Type django-admin startproject inventoryproject
+On github, download the repository in the form of a zip file by going to code -> download zip
+Once the ZIP is downloaded, double click on the file to open it
+Double click on the CSC230-projects folder
+Double click on the inventory project folder
+Open a new file explorer/finder window and open the inventoryproject folder in the same directory where you created the django app
+Highlight the files in the CSC230-projects inventoryproject folder and copy and paste the folders to the django created inventoryproject folder
+If a replace file diaglogue box appeares, click replace all
+In terminal/cmd, make sure that the directory is the django inventory project folder and type python manage.py runserver
+Control-Click/CMD-Click the http://127.0.0.1:8000 link
+
+Enjoy the website!
 
