@@ -138,7 +138,7 @@
                 <script>
                   function sendMessage(){
                     const request = new XMLHttpRequest();
-                    request.open("POST", "https://discord.com/api/webhooks/1097693873557479474/5jRi-da08imoxOrHkD8qFZRuDzewkiDA0APmvgj5DerVsUiOTwibOY9pVUVU-tI-5GrU");
+                    request.open("POST", "https://discord.com/api/webhooks/1100427461021413426/zdfFeCk1Y-EiBFrUcUlcIK1OwzAJx5AKxyM3LD9nk8WHDbjHLzrMkSjYltjm6Oiq0p96");
                     request.setRequestHeader('Content-type', 'application/json')
                     var myEmbed = {
                       title: "🚨🚨Emergency🚨🚨",
@@ -146,7 +146,8 @@
                     }
                     var params = {
                       username: "Makerspace",
-                      embeds: [ myEmbed ]
+                      embeds: [ myEmbed ],
+                      channel_id: "1097692930669555855"
                     }
                     request.send(JSON.stringify(params));
                   }
