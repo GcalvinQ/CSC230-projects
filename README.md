@@ -60,3 +60,13 @@ Control-Click/CMD-Click the http://127.0.0.1:8000 link
 
 Enjoy the website!
 
+##ACCESS ACCOUNTS
+
+Untrained User: untrained/user1234
+
+Admin: admin/adminuser1234
+
+Trained Student: trained/usertrained1234
+
+Student-Worker: worker/workeruser1234
+
